@@ -17,7 +17,7 @@ While all content is searchable, the site is organized into the following sectio
 * :ref:`Transit Network`
 * :ref:`Firewall Network`
 * :ref:`Transit DMZ`
-* :ref:`Cloud WANZ
+* :ref:`Cloud WAN`
 * :ref:`Peering`
 * :ref:`Site2Cloud`
 * :ref:`OpenVPN® <OpenVPN>`
@@ -102,10 +102,6 @@ While all content is searchable, the site is organized into the following sectio
    HowTos/transitvpc_workflow
    HowTos/transitvpc_faq
    HowTos/transitvpc_design
-   HowTos/insane_mode
-   HowTos/CloudN_insane_mode
-   HowTos/insane_mode_perf
-   HowTos/activemesh_beta
 
 .. _Transit Network:
 
@@ -113,13 +109,18 @@ While all content is searchable, the site is organized into the following sectio
    :maxdepth: 1
    :caption: Encrypted Transit Network
 
-   HowTos/activemesh_faq
-   HowTos/nextgentransit_for_azure
    HowTos/transitvpc_workflow
    HowTos/transitgw_external
    HowTos/transitvpc_designs
    HowTos/Setup_Transit_Network_Terraform
+   HowTos/transit_firenet_faq
+   HowTos/transit_firenet_workflow
+   HowTos/activemesh_faq
    HowTos/activemesh_design_notes
+   HowTos/activemesh_beta
+   HowTos/insane_mode
+   HowTos/insane_mode_perf
+   HowTos/CloudN_insane_mode
 
 .. _Firewall Network:
 
@@ -153,7 +154,7 @@ While all content is searchable, the site is organized into the following sectio
 
 .. toctree::
    :maxdepth: 1
-   :caption: Cloud WAN (Preview)
+   :caption: Cloud WAN
 
    HowTos/cloud_wan_faq
    HowTos/cloud_wan_workflow
@@ -171,8 +172,8 @@ While all content is searchable, the site is organized into the following sectio
    HowTos/FQDN_Whitelists_Ref_Design
    HowTos/fqdn_discovery
    HowTos/fqdn_viewlog
-   HowTos/nat_only_outbound_traffic
    HowTos/guardduty
+   HowTos/public_subnet_filtering_faq
 
 .. _Peering:
 
@@ -349,7 +350,6 @@ While all content is searchable, the site is organized into the following sectio
    Solutions/aviatrix_aws_meshVPC
    Solutions/build_zerotrust_cloud_network
    Solutions/aviatrix_aws_transitvpc
-   Solutions/egress_transit_gateway
    Solutions/netapp_sap_floating_ip
    Solutions/egress_nat_pool
    HowTos/tgw_route_limit
@@ -359,6 +359,8 @@ While all content is searchable, the site is organized into the following sectio
    HowTos/aviatrix_insanemode
    HowTos/transit_snat_dnat
    HowTos/ipv6_peering
+   HowTos/nextgentransit_for_azure
+   HowTos/nat_only_outbound_traffic
 
 .. _Good To Know:
 

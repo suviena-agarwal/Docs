@@ -38,7 +38,7 @@ Do not launch the firewall instance from AWS Console as you launch it in the fol
 
 This step creates a Security Domain with a Firewall Domain option. 
 
-Go to TGW Orchestrator -> Plan -> Create a Security Domain to create one. Select "Aviatrix Firewall Domain". 
+Go to TGW Orchestrator -> Plan -> Create an AWS Transit Gateway and then a Security Domain by selecting "Aviatrix Firewall Domain". 
 
 For more information, refer to `Create a New Security Domain <https://docs.aviatrix.com/HowTos/tgw_plan.html#create-a-new-security-domain>`_. 
 
@@ -129,8 +129,11 @@ This step programs the relative route tables, described as below.
 
 This approach is recommended if this is the first Firewall instance to be attached to the gateway. 
 
-This step launches a VM-Series and associates it with one of the FireNet gateways. Note the VM-Series and the 
-associated FireNet gateway must be in the same AZ.
+This step launches a VM-Series and associates it with one of the FireNet gateways. 
+
+.. important::
+
+The VM-Series and the associated Aviatrix FireNet gateway above must be in the same AZ, and, the Management Interface Subnet and Egress (untrust dataplane) Interface Subnet should not be in the same subnet.
 
 7a.1 Launch and Attach
 ##########################
@@ -142,6 +145,8 @@ VPC ID                                          The Security VPC created in Step
 Gateway Name                                    The primary FireNet gateway.
 Firewall Instance Name                          The name that will be displayed on AWS Console.
 Firewall Image                                  The AWS AMI that you have subscribed in Step 2.
+Firewall Image Version                          VM-Series current supported software versions. 
+Firewall Instance Size                          VM-Series instance type.  
 Management Interface Subnet.                    Select the subnet whose name contains "gateway and firewall management"
 Egress Interface Subnet                         Select the subnet whose name contains "FW-ingress-egress".
 Key Pair Name (Optional)                        The .pem file name for SSH access to the firewall instance.
@@ -166,7 +171,7 @@ Note that firewall instance eth2 is on the same subnet as FireNet gateway eth2 i
 
 .. important::
 
-  For Panorama managed firewalls, you need to prepare Panorama first and then launch a firewall. Check out `Setup Panorama <https://docs.aviatrix.com/HowTos/paloalto_API_setup.html#managing-vm-series-by-panorama>`_.  When a VM-Series instance is launched and connected with Panorama, you need to apply a one time "commit and push" from thePanorama console to sync the firewall instance and Panorama.
+  For Panorama managed firewalls, you need to prepare Panorama first and then launch a firewall. Check out `Setup Panorama <https://docs.aviatrix.com/HowTos/paloalto_API_setup.html#managing-vm-series-by-panorama>`_.  When a VM-Series instance is launched and connected with Panorama, you need to apply a one time "commit and push" from the Panorama console to sync the firewall instance and Panorama.
 
 .. Tip::
 
@@ -202,6 +207,8 @@ instances from the AWS Console and associate them to the Aviatrix FireNet gatewa
 
 7c. Launch & Associate Aviatrix FQDN gateway
 ------------------------------------------------
+
+If you perform 7a or 7b, then you must be using a third party firewall instance. Skip this step.
 
 This option is to deploy `Aviatrix FQDN gateway <https://docs.aviatrix.com/HowTos/fqdn_faq.html>`_ in a FireNet environment for a centralized scale out egress whitelist solution, as shown below. 
 
